@@ -8,6 +8,9 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
+def scratch(request):
+    return render(request, 'scratch.html')
+
 #runcodefunction
 def runcode(request):
     if request.method == "POST":
