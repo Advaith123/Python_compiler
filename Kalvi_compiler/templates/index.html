@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css" />
+    <title>PyCompiler</title>
+  </head>
+  <body style="font-family:Verdana"><br>
+    <h1 style="text-align: center"> PyCompiler </h1><br>
+
+    <form style="margin-left: 50px; margin-right:50px;" action="/runcode" method="post">
+      {% csrf_token %}
+  <div class="form-group">
+    <label for="codearea">Enter Code</label>
+      <textarea type="text" class="form-control" id="codearea" name="codearea" placeholder="print('Hello World')" rows="10" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{ code }}</textarea>
+  </div>
+  <div align="right">
+    <button type="submit" class="btn btn-primary">Run</button>
+  </div>
+  <div class="form-group">
+    <label for="output">Output</label>
+      <textarea type="text" class="form-control" id="output" placeholder="Your Output Here" rows="5" disabled>{{ output }}</textarea>
+  </div>
+
+    </form>
+  </body>
+</html>
